@@ -35,7 +35,23 @@ void main()
     assert(fabs(to_24_hour_clock(28.5) - 4.5) < DBL_EPSILON);
     cout << "Тестирование функции to_24_hour_clock пройдено!" << endl;
 
+    // Тестирование функции get_hours
+    assert(get_hours(3800) == 1);
+    assert(get_hours(67) == 0);
+    assert(get_hours(7200) == 2);
+    cout << "Тестирование функции get_hours пройдено!" << endl;
 
+    // Тестирование функции get_minutes
+    assert(get_minutes(3800) == 3);
+    assert(get_minutes(67) == 1);
+    assert(get_minutes(7200) == 0);
+    cout << "Тестирование функции get_minutes пройдено!" << endl;
+
+    // Тестирование функции get_seconds
+    assert(get_seconds(3800) == 20);
+    assert(get_seconds(67) == 7);
+    assert(get_seconds(7200) == 0);
+    cout << "Тестирование функции get_seconds пройдено!" << endl;
 
 
 	system("pause");

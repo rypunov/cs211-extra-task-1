@@ -15,3 +15,12 @@ double to_float_hours(int hours, int minutes, int seconds);
 
 //¬озвращает час, как он отображаетс€ в 24 - часовом формате
 double to_24_hour_clock(double hours);
+
+//¬озвращает часовую часть времени
+int get_hours(int seconds);
+
+//¬озвращает минутную часть времени
+int get_minutes(int seconds);
+
+//¬озвращает секундную часть времени
+int get_seconds(int seconds);
