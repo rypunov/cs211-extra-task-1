@@ -1,7 +1,5 @@
 #include "cs211-extra-task-1.h"
-
 using namespace std;
-
 
 void main()
 {
@@ -59,12 +57,31 @@ void main()
     assert(fabs(time_to_utc(-1, 12.0) - 13.0) < DBL_EPSILON);
     assert(fabs(time_to_utc(-11, 18.0) - 5.0) < DBL_EPSILON);
     assert(fabs(time_to_utc(-1, 0.0) - 1.0) < DBL_EPSILON);
+    assert(fabs(time_to_utc(+5, 0.0) - 19.0) < DBL_EPSILON);
     assert(time_to_utc(-1, 23.0) < DBL_EPSILON);
     cout << "Тестирование функции time_to_utc пройдено!" << endl;
 
-
-
-
+    // Тестирование функции time_from_utc
+    assert(fabs(time_from_utc(+0, 12.0) - 12.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(+1, 12.0) - 13.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(-1, 12.0) - 11.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(+6, 6.0) - 12.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(-7, 6.0) - 23.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(-1, 0.0) - 23.0) < DBL_EPSILON);
+    assert(fabs(time_from_utc(-1, 23.0) - 22.0) < DBL_EPSILON);
+    assert(time_from_utc(+1, 23.0) < DBL_EPSILON);
+    cout << "Тестирование функции time_from_utc пройдено!" << endl;
 
 	system("pause");
 }
+/*
+Тестирование функции seconds_difference пройдено!
+Тестирование функции hours_difference пройдено!
+Тестирование функции to_float_hours пройдено!
+Тестирование функции to_24_hour_clock пройдено!
+Тестирование функции get_hours пройдено!
+Тестирование функции get_minutes пройдено!
+Тестирование функции get_seconds пройдено!
+Тестирование функции time_to_utc пройдено!
+Тестирование функции time_from_utc пройдено!
+*/

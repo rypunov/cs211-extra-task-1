@@ -45,37 +45,16 @@ double time_to_utc(int utc_offset, double time)
 {
     assert(-12 <= utc_offset && utc_offset <= 14);
     assert(time >= 0);
-    return fmod(time - utc_offset, 24.0);
+
+    double dif = time - utc_offset;
+    return dif > 0 ? fmod(dif, 24.0) : 24 + fmod(dif, 24.0);
 }
 
 double time_from_utc(int utc_offset, double time)
 {
-    /*
-        Return UTC time in time zone utc_offset.
+    assert(-12 <= utc_offset && utc_offset <= 14);
+    assert(time >= 0);
 
-        >>> time_from_utc(+0, 12.0)
-        12.0
- 
-        >>> time_from_utc(+1, 12.0)
-        13.0
- 
-        >>> time_from_utc(-1, 12.0)
-        11.0
- 
-        >>> time_from_utc(+6, 6.0)
-        12.0
- 
-        >>> time_from_utc(-7, 6.0)
-        23.0
- 
-        >>> time_from_utc(-1, 0.0)
-        23.0
- 
-        >>> time_from_utc(-1, 23.0)
-        22.0
- 
-        >>> time_from_utc(+1, 23.0)
-        0.0
-    */
-    return 0;
+    double dif = time + utc_offset;
+    return dif > 0 ? fmod(dif, 24.0) : 24 + fmod(dif, 24.0);
 }
